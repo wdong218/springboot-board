@@ -1,12 +1,14 @@
 package com.example.springboot_board.domain;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
+@Getter
 @Entity //이 클래스가 테이블임을 명시
 @EntityListeners(AuditingEntityListener.class)
 public class Post {
