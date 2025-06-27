@@ -1,4 +1,4 @@
-package com.example.springboot_board;
+package com.example.springboot_board.domain;
 
 import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
