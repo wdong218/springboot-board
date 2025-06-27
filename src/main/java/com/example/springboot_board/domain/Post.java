@@ -24,4 +24,19 @@ public class Post {
      private LocalDateTime created_at;
     @LastModifiedDate //업데이트 시 자동 갱신
      private LocalDateTime  updated_at;
+    // 생성자 추가
+    public Post(String title, String content, String author) {
+        this.title = title;
+        this.content = content;
+        this.author = author;
+    }
+    // update 메서드도 있으면 좋음
+    public void update(String title, String content, String author) {
+        this.title = title;
+        this.content = content;
+        this.author = author;
+    }
+
+    // JPA를 위한 기본 생성자
+    protected Post() {}
 }
