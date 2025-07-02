@@ -5,6 +5,7 @@ import com.example.springboot_board.dto.PostRequestDto;
 import com.example.springboot_board.dto.PostResponseDto;
 import com.example.springboot_board.repository.PostRepository;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -42,6 +43,7 @@ public class PostService {
     }
 
     // 게시글 수정
+    @Transactional
     public void updatePost(Long id, PostRequestDto requestDto,String password) {
         Post post = postRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Post not found"));
         if(!password.equals(post.getPassword())) {
@@ -56,6 +58,7 @@ public class PostService {
     }
 
     // 게시글 삭제
+    @Transactional
     public void deletePost(Long id,String password) {
         Post post = postRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Post not found"));
         if(!password.equals(post.getPassword())) {
