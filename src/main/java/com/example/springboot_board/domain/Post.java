@@ -15,28 +15,34 @@ public class Post {
 
     @Id //기본키로 설정
     @GeneratedValue(strategy = GenerationType.IDENTITY) //자동으로 초기화 값 설정
-     private Long id;
+    private Long id;
     @Column(nullable = false, length = 100) //제약조건 NUll금지,길이 제한
-     private String title;
-     private String content;
-     private String author;
+    private String title;
+    private String content;
+    private String author;
+    @Column(nullable = false, length = 100)
+    private String password;
     @CreatedDate //insert 시 자동 생성
-     private LocalDateTime created_at;
+    private LocalDateTime created_at;
     @LastModifiedDate //업데이트 시 자동 갱신
-     private LocalDateTime  updated_at;
+    private LocalDateTime updated_at;
+
     // 생성자 추가
-    public Post(String title, String content, String author) {
+    public Post(String title, String content, String author, String password) {
         this.title = title;
         this.content = content;
         this.author = author;
+        this.password = password;
     }
+
     // update 메서드도 있으면 좋음
     public void update(String title, String content, String author) {
         this.title = title;
         this.content = content;
         this.author = author;
-    }
 
+    }
     // JPA를 위한 기본 생성자
-    protected Post() {}
+    protected Post() {
+    }
 }

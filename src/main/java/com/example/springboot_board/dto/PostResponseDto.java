@@ -11,6 +11,7 @@ public class PostResponseDto {
     private final String title;    // 게시글 제목
     private final String content;  // 게시글 본문
     private final String author;   // 게시글 작성자
+    private final String password; // 게시글 비밀번호
 
     // Entity(Post)를 받아서 DTO로 변환하는 생성자
     public PostResponseDto(Post post) {
@@ -18,5 +19,6 @@ public class PostResponseDto {
         this.title = post.getTitle();   // Post 엔티티의 제목을 받아서 저장
         this.content = post.getContent(); // Post 엔티티의 본문을 받아서 저장
         this.author = post.getAuthor();   // Post 엔티티의 작성자를 받아서 저장
+        this.password = post.getPassword(); // post 엔티티의 비밀번호를 받아서 저장
     }
 }
